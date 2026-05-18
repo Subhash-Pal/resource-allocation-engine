@@ -35,7 +35,7 @@ The greedy strategy is easy to understand and very fast, but it can spend a vers
 From the project root:
 
 ```powershell
-cd D:\training_golang\resource-allocation-engine
+cd .\resource-allocation-engine
 powershell -ExecutionPolicy Bypass -File .\run-app.ps1 -Action all
 ```
 
@@ -50,13 +50,13 @@ Available actions:
 ### Backend
 
 ```powershell
-cd D:\training_golang\resource-allocation-engine\backend
-New-Item -ItemType Directory -Force -Path D:\training_golang\resource-allocation-engine\.tmp,D:\training_golang\resource-allocation-engine\.pip-cache,D:\training_golang\resource-allocation-engine\.pip-target | Out-Null
-$env:TMP='D:\training_golang\resource-allocation-engine\.tmp'
-$env:TEMP='D:\training_golang\resource-allocation-engine\.tmp'
-$env:PIP_CACHE_DIR='D:\training_golang\resource-allocation-engine\.pip-cache'
-& 'C:\Users\Shubh\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe' -m pip install --target D:\training_golang\resource-allocation-engine\.pip-target -r requirements.txt
-$env:PYTHONPATH='D:\training_golang\resource-allocation-engine\.pip-target;D:\training_golang\resource-allocation-engine\backend'
+cd .\resource-allocation-engine\backend
+New-Item -ItemType Directory -Force -Path .\resource-allocation-engine\.tmp,.\resource-allocation-engine\.pip-cache,.\resource-allocation-engine\.pip-target | Out-Null
+$env:TMP='.\resource-allocation-engine\.tmp'
+$env:TEMP='.\resource-allocation-engine\.tmp'
+$env:PIP_CACHE_DIR='.\resource-allocation-engine\.pip-cache'
+& 'C:\Users\Shubh\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe' -m pip install --target .\resource-allocation-engine\.pip-target -r requirements.txt
+$env:PYTHONPATH='.\resource-allocation-engine\.pip-target;.\resource-allocation-engine\backend'
 & 'C:\Users\Shubh\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe' -m uvicorn app.main:app --reload
 ```
 
@@ -65,9 +65,9 @@ Backend runs at `http://127.0.0.1:8000`.
 ### Frontend
 
 ```powershell
-cd D:\training_golang\resource-allocation-engine\frontend
-New-Item -ItemType Directory -Force -Path D:\training_golang\resource-allocation-engine\.npm-cache | Out-Null
-$env:npm_config_cache='D:\training_golang\resource-allocation-engine\.npm-cache'
+cd .\resource-allocation-engine\frontend
+New-Item -ItemType Directory -Force -Path .\resource-allocation-engine\.npm-cache | Out-Null
+$env:npm_config_cache='.\resource-allocation-engine\.npm-cache'
 & 'C:\Program Files\nodejs\npm.cmd' install
 & 'C:\Program Files\nodejs\npm.cmd' run dev
 ```
@@ -79,8 +79,8 @@ Frontend runs at `http://127.0.0.1:5173`.
 Run backend tests with:
 
 ```powershell
-cd D:\training_golang\resource-allocation-engine\backend
-$env:PYTHONPATH='D:\training_golang\resource-allocation-engine\.pip-target;D:\training_golang\resource-allocation-engine\backend'
+cd .\resource-allocation-engine\backend
+$env:PYTHONPATH='.\resource-allocation-engine\.pip-target;.\resource-allocation-engine\backend'
 & 'C:\Users\Shubh\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe' -m unittest discover -s tests -v
 ```
 
