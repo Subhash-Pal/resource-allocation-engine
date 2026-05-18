@@ -1,0 +1,6 @@
+[31merror when starting dev server:
+Error: Port 15173 is already in use
+    at Server.onError (file:///D:/training_golang/resource-allocation-engine/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:45596:18)
+    at Server.emit (node:events:509:28)
+    at emitErrorNT (node:net:2044:8)
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21)[39m
